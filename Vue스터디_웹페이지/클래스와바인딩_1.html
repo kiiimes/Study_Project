@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container text-center">
+      <div class="box" v-bind:class="{'red':color,'blue':!color}"></div>
+      <div class="box" v-bind:class="{'purple':color,'green':!color}"></div>
+      <div class="box" v-bind:class="{'red':color,'blue':!color}"></div>
+      <div class="box" v-bind:class="{'purple':color,'green':!color}"></div>
+      <!-- red purple blue 이런것들은 클래스 이름이고 그 옆에 color는 true나 false를 담는 변수이다. -->
+      <button v-on:click="flipcolor" class="btn btn-block btn-success">Flip color!</button>
+    </div>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.0/vue.js"></script>
+  <script>
+    new Vue({
+      el:'.container',
+      data:{
+        color:true
+      },
+      methods:{
+        flipcolor:function(){
+          this.color=!this.color;
+        }
+      }
+    })
+  </script>
+  <style>
+    .red{
+      background:#ff0000;
+    }
+    .blue{
+      background:#0000ff;
+    }
+    .purple{
+      background:#781FA2;
+    }
+    .green{
+      background:#4CAF50;
+    }
+    .box{
+      float:left;
+      width:200px;
+      height:200px;
+      margin:40px;
+      border:1px solid rgba(0,0,0,2);
+    }
+  </style>
+</html>

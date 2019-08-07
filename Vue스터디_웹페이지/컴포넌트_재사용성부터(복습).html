@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+  <head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Let's hear some stories!</h1>
+      <div>
+        <h3>Alex's stories</h3>
+        <ul class="list-group">
+          <story v-for="story in storiesBy('Alex')" :story="story"></story>
+        </ul>
+        <h3>John's stories</h3>
+        <ul class="list-group">
+          <story v-for="story in storiesBy('Alex')" :story="story"></story>
+        </ul>
+        <div class="form-group">
+          <label for="query">What are you looking for?</label>
+          <input type="text" v-model="query" class="form-control">
+        </div>
+        <h3>Search results</h3>
+        <ul class="list-group">
+          <story v-for="story in search" :story="story"></story>
+        </ul>
+      </div>
+    </div>
+  </body>
+  <template id="story-template">
+    <li class="list-group-item">
+      {{story.writer}} said "{{story.body}}"
+    </li>
+  </template>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.0/vue.js"></script>
+  <script>
+    Vue.component('story',{
+      props:['story'],
+      template:'#story-template'
+    })
+    new Vue({
+      el:'.container',
+      data:{
+        story:[
+          {
+            plot:'I crashed my car today!',
+            writer:'Alex',
+            upvotes:28
+          },
+          {
+            plot:'Yesterday, someone stole my bag!',
+            writer:'John',
+            upvotes:8
+          },
+          {
+            plot:"some ate my chocolate...",
+            writer:'John',
+            upvotes:51
+          },
+          {
+            plot:"I ate someone's chocolate!",
+            writer:'Alex',
+            upvotes:74
+          },
+        ],
+        query:' ',
+        order:-1
+      },
+      computed:{
+        search:function(){
+          var query=this.query
+          return this.stories.filter(function(story){
+            return story.writer.includes(query)
+          })
+        },
+        orderedStories:function(){
+          var order=this.order;
+          return this.stories.sort(function(a,b){
+            // 반환값이 양수냐 음수냐 0이냐 에 따라서 달라짐
+            return (a.upvotes-b.upvotes)*order;
+          })
+        }
+      }
+    })
+  </script>
+</html>

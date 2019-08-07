@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+        <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Real identities of Super Heroes!</h1>
+      <ul class="list-group">
+        <li v-for="hero in heroes" class="list-group-item">
+          {{hero|snitch}}
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    Vue.filter('snitch',function(hero){
+      return hero.secretId +'is'+hero.firstname+' '+hero.lastname+' in real life!'
+    })
+    new Vue({
+      el:'.container',
+      data:{
+        heroes:[
+          {firstname:'Bruce',lastname:'Wayne',secretId:'Batman'},
+          {firstname:'Clark',lastname:'Kent',secretId:'Superman'},
+          {firstname:'Jay',lastname:'Garrick',secretId:'Flash'},
+          {firstname:'Peter',lastname:'Parker',secretId:'Spider-Man'}
+
+        ]
+      }
+    })
+  </script>
+</html>

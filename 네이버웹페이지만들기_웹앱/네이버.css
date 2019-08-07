@@ -1,0 +1,69 @@
+.green{
+  background-color:rgb(5,200,59);
+  text-align: center;
+  /*안에 있는 내용들을 가운데로 정렬 하겠다는 것!!!!!!!!*/
+}
+#search{
+  margin:0 auto;
+  width:80%;
+  display:inline-block;
+}
+#search-bottom{
+  padding-bottom:10px;
+}
+#menu-icon{
+  width:60px;
+  height:55px;
+  float:left;
+  margin:20px 0 0 30px;
+}
+#navbar>li:hover{
+  color:#00FF00;
+  border-bottom:1px solid #00FF00;
+}
+
+#main-wrapper{
+  width:auto;
+  height:500px;
+  background-color:rgba(195,195,195,0.3);
+}
+#home-icon{
+  width:60px;
+  height:55px;
+  float:right;
+  margin:20px 30px 0 0;
+}
+#mic-icon{
+  margin-left:-45px;
+}
+
+#navbar{
+  width:100%;
+  background-color:rgb(255,255,255);
+}
+#navbar>li{
+  margin:auto;
+}
+#navbar>li>a>img{
+  height:18px;
+}
+nav{
+  margin-bottom:20px;
+}
+tbody>tr>td{
+  text-align:50px;
+  /*text-align:center;*/
+  width:100%;
+}
+#silsigan{
+  margin-top:-25px;
+  width:100%;
+  background-color:rgb(255,255,255);
+}
+#silsigan>li:first-child{
+  margin-left:200px;
+
+}
+#silsigan>li>a>img{
+  height:18px;
+}

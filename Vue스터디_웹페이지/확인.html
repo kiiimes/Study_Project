@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+<head></head>
+<body>
+<span id="test" style="background:#f90;display:block;width:90px;position:relative;">-> TEST BOX</span>
+<button id="stop_bt" type="button">finish()</buttom>
+</body>
+
+<script type="text/javascript">
+$(document).ready(function() {$("#test").animate({left:280}, 20000);
+$("#stop_bt").on("click", function(){
+$("#test").finish();
+});
+})
+</script>
+</html>

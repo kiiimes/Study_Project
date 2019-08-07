@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+  <head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Where would like to go?</h1>
+      <ul class="list-group">
+        <planets v-for="p in planet" :planet="p"></planets>
+      </ul>
+    </div>
+  </body>
+  <template id="space">
+    <li class="list-group-item">
+      Planet:{{p.name}} visited {{p.num}} time(s)
+      <button class="btn btn-primary" v-show="!pv" @click="visit">visit</button>
+      
+    </li>
+  </template>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.0/vue.js"></script>
+  <script>
+    Vue.component('planets',{
+      template:'#space'
+    })
+    new Vue({
+      el:'.container',
+      data:{
+        planet:[
+          {
+            name:Mercury,
+            num:0
+          },
+          {
+            name:Venus,
+            num:0
+          },
+          {
+            name:Mars,
+            num:0
+          },
+          {
+            name:Jupiter,
+            num:0
+          }
+        ]
+      }
+    })
+  </script>
+</html>

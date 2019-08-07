@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <h1>People of Gaul</h1>
+      <ul class="list-group">
+        <li class="list-group-item" v-for="person in ageSort">
+          {{person.name}} {{person.age}}
+        </li>
+      </ul>
+      <h1>"Old" People of Gaul</h1>
+      <ul class="list-group">
+        <li class="list-group-item"></li>
+      </ul>
+    </div>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.0/vue.js"></script>
+  <script>
+    new Vue({
+      el:'.container',
+      data:{
+        people:[
+          {name:'Obelix',age:31},
+          {name:'Asterix',age:32},
+          {name:'JuliusCaesar',age:56},
+          {name:'Majestix',age:62}
+        ]
+      },
+      methods:{
+        ageSort:function(){
+          return this.people.sort(function(a,b){
+            return a.age-b.age;
+          });
+        }
+      }
+    })
+  </script>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <!-- <div class="container">
+      <story plot="my horse is amazing" writer="Mr.Weebl"></story>
+      <story plot="Narwhals invented Shish Kebab" writer="Kiimes"></story>
+
+    </div> -->
+    <div class="container">
+      <story v-bind:story="{plot:'My horse is amazing.',writer:'Mr.Weebl'}"></story>
+      <story v-bind:story="{plot:'Narwhals invented Shish Kebab',writer:'Mr.Weebl'}"></story>
+      <story v-bind:story="{plot:'The dark side of the Force is stronger',writer:'Darth Vader'}"></story>
+      <!-- v-bind 객체 쓸수 있음 -->
+      <!-- v-bind의 축약형은 : 이다 그러므로 :story="..." 와 같이 사용할 수 있다. -->
+    </div>
+    <template id="story-template">
+      <h1>{{story.writer}} said "{{story.plot}}"</h1>
+    </template>
+  </body>
+  <!-- <script type="text/template" id="story-template">
+    <h1>My horse is amazing!</h1>
+  </script> -->
+  <!-- <template id="story-template">
+    <h1>My horse is amazing!</h1>
+  </template> -->
+  <!-- <template id="story-template">
+    <h1>{{plot}}</h1>
+    <h1>{{writer}}</h1>
+  </template> -->
+
+  <script>
+    // Vue.component('story',{
+    //   template:'<h1>My horse is amazing!</h1>'
+    // });
+    Vue.component('story',{
+      props:['story'],
+      template:'#story-template'
+    });
+    new Vue({
+      el:'.container'
+    })
+  </script>
+</html>

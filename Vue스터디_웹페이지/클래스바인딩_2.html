@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container text-center">
+      <div class="box" v-bind:class="[color ? 'red':'blue']"></div>
+      <button v-on:click="flipColor" class="btn btn-block btn-success"></button>
+      <!-- 변수랑 클래스 같이 쓰고 싶으면 클래스는 작은따옴표 이용해서 사용한다.  -->
+      <!-- ex) v-bind:class="[variable,'classname']" -->
+    </div>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.0/vue.js"></script>
+  <script>
+    new Vue({
+      el:'.container',
+      data:{
+        color:true
+      },
+      methods:{
+        flipColor:function(){
+          this.color=!this.color;
+        }
+      }
+    })
+  </script>
+  <style>
+    .red{
+      background:#ff0000;
+    }
+    .blue{
+      background:#0000ff;
+    }
+    .purple{
+      background:#781FA2;
+    }
+    .green{
+      background:#4CAF50;
+    }
+    .box{
+      float:left;
+      width:200px;
+      height:200px;
+      margin:40px;
+      border:1px solid rgba(0,0,0,2);
+    }
+  </style>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+  <head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+        <h1>Let's hear some stories!</h1>
+        <ul class="list-group">
+          <story v-for="story in stories" :story="story" :favorite="favorite">
+          <!-- v-for에서 stories라는 객체 배열에서 각각 하나를 story로 받고잇고 그 객체를 :story에서 받아서
+          writer과 plot을 받는 거임 -->
+          </story>
+        </ul>
+        <pre>{{$data}}</pre>
+      </div>
+    </div>
+  </body>
+  <template id="story-template">
+    <li class="list-group-item">
+      {{story.writer}} said "{{story.plot}}".Story upvotes {{story.upvotes}}
+
+      <button @click="upvote" class="btn btn-default" v-show="!story.voted">Upvote</button>
+      <button v-show="!isFavorite" @click="setFavorite" class="btn btn-primary">Favorite</button>
+      <span v-show="isFavorite" class="gliphicon glyphicon-star pull-right" aria-hidden="true"></span>
+    </li>
+  </template>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.0/vue.js"></script>
+  <script>
+    Vue.component('story',{
+      props:['story','favorite'],
+      template:'#story-template',
+      methods:{
+        upvote:function(){
+          this.story.upvotes+=1;
+          this.story.voted=true;
+        },
+        setFavorite:function(){
+          this.favorite=this.story;
+        }
+      },
+      computed:{
+        isFavorite:function(){
+          return this.story==this.favorite;
+        }
+      }
+    });
+    new Vue({
+      el:'#app',
+      data:{
+        stories:[
+          {
+            plot:'My horse is amazing',
+            writer:'Mr.Weebl',
+            upvotes:28,
+            voted:false
+          },
+          {
+            plot:'Narwhals invented Shish Kebab',
+            writer:'Mr.Weebl',
+            upvotes:8,
+            voted:false
+          },
+          {
+            plot:'The dark side of the Force is stronger',
+            writer:'Darth Vader',
+            upvotes:49,
+            voted:false
+          },
+          {
+            plot:'One does not simply walk into Mordor',
+            writer:'Boromir',
+            upvotes:74,
+            voted:false
+          }
+        ],
+        favorite:{}
+      }
+    })
+  </script>
+</html>

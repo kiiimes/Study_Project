@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </head>
+  <!-- <body> -->
+    <!-- <div class="container">
+      <story v-bind:story="{plot:'My horse is amazing.',writer:'Mr.Weebl'}"></story>
+      <story v-bind:story="{plot:'Narwhals invented Shrish Kebab',writer:'Mr.Weebl'}"></story>
+      <story v-bind:story="{plot:'The dark side of the Force is stronger',writer:'Darth Vader'}"></story>
+    </div>
+    <template id="story-template">
+      <h1>{{story.writer}} said "{{story.plot}}"</h1>
+    </template> -->
+  <!-- </body> -->
+  <!-- <script>
+    Vue.component('story',{
+      props:['story'],
+      template:"#story-template"
+    })
+    new Vue({
+      el:'.container'
+    })
+  </script> -->
+  <body>
+    <div class="container">
+      <h1>Lets hear some stories!</h1>
+      <div>
+        <h3>Alex's stories</h3>
+        <ul class="list-group">
+          <story v-for="story in storiesBy('Alex')" :story="story"></story>
+        </ul>
+        <h3>John's stories</h3>
+        <ul class="list-group">
+          <story v-for="story in storiesBy('John')" :story="story"></story>
+        </ul>
+        <div class="form-group">
+          <label for="query">What are you looking for?</label>
+          <input v-model="query" class="form-control" type="text">
+        </div>
+        <h3>Search results:</h3>
+        <ul class="list-group">
+          <story v-for="story in search" :story="story"></story>
+        </ul>
+      </div>
+    </div>
+    <template id="story-template">
+      <!-- 원래는 html 에서 그 수만큼 바꿔야 되는데 이런식으로 하게 되면 여기 한줄만 바꿔도됨 -->
+      <li class="list-group-item">
+        {{story.writer}} said "{{story.body}}"
+      </li>
+    </template>
+  </body>
+  <script>
+  Vue.component('story',{props:['story'],template:'#story-template'})
+  </script>
+</html>

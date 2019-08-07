@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </head>
+  <body>
+  <div class="container">
+    <h1>Enter 2 numbers to calculate their sum.</h1>
+    <form class="form-inline">
+      <input v-model.number="a" class="form-control">
+      <input v-model="operator" class="form-control">
+      <input v-model.number="b" class="form-control">
+    </form>
+    <h2>Result:{{a}}{{operator}}{{b}}={{c}}</h2>
+    <pre>
+      {{$data}}
+    </pre>
+  </div>
+  </body>
+  <script>
+    new Vue({
+      el:'.container',
+      data:{
+        a:1,
+        b:2
+      },
+      computed:{
+        c:function(){
+          switch(this.operator){
+            case '+':return this.a+this.b;break;
+            case '-':return this.a-this.b;break;
+            case '*':return this.a*this.b;break;
+            case '/':return this.a/this.b;break;
+
+          }
+
+
+          return this.a+this.b
+        }
+      }
+    });
+  </script>
+</html>

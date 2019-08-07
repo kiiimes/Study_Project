@@ -1,0 +1,10 @@
+//this.query 이해 안됨 53쪽//
+//lodash 사용 어려움 63쪽//
+//template 사용시 아이디 아무거나 됨??//
+//속성 부분 잘 이해 안됨....//
+camelCase는 띄어쓰기로 구분되는 부분을 대문자나 소문자로
+표시하는 것
+kebab-case는 그 부분을 - (하이픈)으로 구분하는것
+ex) props:['isUser']는 HTML 속성으로 사용할 때 
+<story is-user="true"></story>로 써야됨
+함께 사용하기 마지막 부분 잘 모르겠음 

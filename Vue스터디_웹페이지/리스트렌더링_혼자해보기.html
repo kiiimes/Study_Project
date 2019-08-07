@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <ul class="list-group">
+        <li class="list-group-item" v-for="(value,key,index) in info">
+          {{index}} : {{key}} = {{value}}
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.0/vue.js"></script>
+  <script>
+    new Vue({
+      el:'.container',
+      data:{
+        info:{
+          name:'Kostas',
+          height:'1.73m',
+          weight:'65kg',
+          eyecolor:'brown',
+          favoritefood:'banana'
+
+        }
+      }
+    })
+  </script>
+
+</html>

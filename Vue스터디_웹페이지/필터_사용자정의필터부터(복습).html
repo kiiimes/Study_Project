@@ -1,0 +1,35 @@
+<!doctype html>
+<!-- Lodash 아직 안했음 -->
+<html>
+  <head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Real identities of Super Heroes!</h1>
+      <ul class="list-group">
+        <li class="list-group-item" v-for="hero in heroes">
+          {{hero|rr}}
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.0/vue.js"></script>
+  <script>
+  Vue.filter('rr',function(hero){
+    return hero.secretId+'is'+hero.firstname+' '+hero.lastname+' in real life!'
+  })
+  // 어떤 형식으로 반환할지 이런거를 좀 지정해줄수있는 그런거 같음
+  new Vue({
+    el:'.container',
+    data:{
+      heroes:[
+        {firstname:'Bruce',lastname:'Wayne',secretId:'Batman'},
+        {firstname:'Clark',lastname:'Kent',secretId:'Superman'},
+        {firstname:'Jay',lastname:'Garrick',secretId:'Flash'},
+        {firstname:'Peter',lastname:'Parker',secretId:'Spider-man'}
+      ]
+    }
+  })
+  </script>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<!-- Lodash 아직 안했음 -->
+<html>
+  <head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <!-- <div class="container"> -->
+      <!-- <story></story>
+      <story></story> -->
+      <!-- <story plot="My horse is amazing" writer="eunsuk"></story>
+      <story plot="Narwhals invented Shish Kebab" writer="jihyun"></story>
+      <story plot="The dark side of the Forse is stronger" writer="DDoo"></story>
+    </div> -->
+    <div class="container">
+      <story v-bind:story="{plot:'My horse is amazing',writer:'My.Weebl'}"></story>
+      <!-- 굳이 v-bind:story로 쓰지않고 :story이런식으로 사용 가능하다. -->
+      <!-- v-bind:story=~~이런식으로 쓰게 되면 객체를 받을 수 있다. props에 ['객체']를 넣어주면 됨  -->
+      <story v-bind:story="{plot:'Narwhals invented Shish Kebab.',writer:'My.Weebl'}"></story>
+      <story v-bind:story="{plot:'The dark side of the Forse is stronger',writer:'DDDDD'}"></story>
+    </div>
+  </body>
+  <template id="story-template">
+    <h1>{{story.writer}} said "{{story.plot}}"</h1>
+  </template>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.0/vue.js"></script>
+  <!-- <script type="text/template" id="story-template">
+    <h1>
+      My horse is amazing!
+    </h1>
+  </script> -->
+  <!-- <template id="story-template">
+    <h1>My horse is amazing!</h1>
+  </template> -->
+  <!-- <template id="story-template">
+    <h1>{{writer}} said "{{plot}}"</h1>
+  </template> -->
+  <script>
+    // Vue.component('story',{
+    //   props:['plot','writer'],
+    //   template:'#story-template'
+    // })
+    // new Vue({
+    //   el:'.container'
+    // })
+    Vue.component('story',{
+      props:['story'],
+      template:'#story-template'
+    })
+    new Vue({
+      el:'.container'
+    })
+  </script>
+</html>

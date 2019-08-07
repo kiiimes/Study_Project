@@ -1,0 +1,56 @@
+<!doctype html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+
+    </title>
+  </head>
+  <body>
+    <!-- <div id="app">
+      <h1>I'm {{name}}</h1><br/>
+      <p>Enter your name</p><br/>
+      <input v-model="name">
+    </div> -->
+    <!-- <div id="app">
+      <h1 v-if="!message">You must send a message for help!</h1>
+      <textarea v-model="message"></textarea>
+      <button v-if="message">
+        send word to allies for hepl!
+      </button>
+      <pre>
+        {{$data}}
+      </pre>
+    </div> -->
+    <div id="app">
+      <template v-if="!message">
+        <h1>eefdfd</h1>
+        <p>귀요미</p>
+        <p>은듀이</p>
+      </template>
+      <h2 v-else>룰루랄라!</h2>
+      <textarea v-model="message" name="name" rows="8" cols="80"></textarea>
+      <button v-show="message" type="button" name="button"></button>
+      <pre>{{$data}}</pre>
+    </div>
+  </body>
+  <script src=”https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js”></script>
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+    // new Vue({
+    //   el:'#app',
+    //   data: {
+    //     name: 'glgl'
+    //   }
+    // })
+     new Vue({
+       el:'#app',
+       data:{
+         message:'Our king is dead!'
+      }
+    })
+
+
+  </script>
+</html>

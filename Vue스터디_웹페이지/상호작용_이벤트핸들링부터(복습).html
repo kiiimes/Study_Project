@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+  <head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <!-- 인라인 이벤트핸들링 -->
+      <!-- <button v-on:click="upvotes++">
+        Upvote! {{upvotes}}
+      </button> -->
+      <!-- <button v-on:click="upvote">
+        {{upvotes}}
+      </button> -->
+      <h1>Type 2 numbers and choose operation</h1>
+      <form class="form-inline">
+        <input v-model.number="a" class="form-control"/>
+        <!-- <select v-model="operator" class="form-control"/>
+          <option>+</option>
+          <option>-</option>
+          <option>*</option>
+          <option>/</option>
+        </select> -->
+        <span>+</span>
+      <input v-model.number="b" class="form-control"/>
+      <button type="submit" @click.prevent="calculate" class="btn btn-primary">Calculate</button>
+      </form>
+      <h2>Result:{{a}} +{{b}} = {{c}}</h2>
+      <pre>
+        {{$data}}
+      </pre>
+    </div>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.0/vue.js"></script>
+  <script>
+    // new Vue({
+    //   el:'.container',
+    //   data:{
+    //     upvotes:0
+    //   },
+    //   methods:{
+    //     upvote:function(){
+    //       this.upvotes++
+    //     }
+    //   }
+    //
+    // })
+    new Vue({
+      el:'.container',
+      data:{
+        a:1,
+        b:2,
+        c:null
+      },
+      // methods:{
+      //   calculate:function(){
+      //     // click당시의 이벤트를 막는 방법은 그냥 event.prevent를 쓰면 되는데 그거 아니면 해당 함수에
+      //     // 매개변수로 event 이런거 주고 event.preventDefault를 해줘야됨.
+      //     switch(this.operator){
+      //       case '+':this.c=this.a+this.b;break;
+      //       case '-':this.c=this.a-this.b;break;
+      //       case '*':this.c=this.a*this.b;break;
+      //       case '/':this.c=this.a/this.b;break;
+      //     }
+      //   }
+      // }
+      computed:{
+        c:function(){
+          return this.a+this.b;
+        }
+      }
+    })
+  </script>
+
+</html>
